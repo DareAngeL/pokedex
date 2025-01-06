@@ -44,6 +44,11 @@ export default function NavBar(props: NavBarProps) {
 
                         setSearchedValue(value);
                     }}
+                    onKeyDown={(e) => {
+                        if (e.key === "Enter") {
+                            props.onSearch(searchedValue);
+                        }
+                    }}
                     placeholder="Find a pokemon..."
                 />
                 <SearchOutlined className={clsx("text-2xl", "text-white")} onClick={() => props.onSearch(searchedValue)}/>
