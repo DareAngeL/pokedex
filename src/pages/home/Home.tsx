@@ -36,20 +36,23 @@ export default function Home() {
         <div className={clsx("flex", "flex-col")}>
             <NavBar onSearch={onSearch}/>
 
-            <div className={clsx("flex", "justify-center", "items-center")}>
-                <RoundedButton 
-                    width="w-16" 
-                    height="h-8"
-                    backgroundColor={clsx({
-                        "bg-red-400":toggleCaptured,
-                        "bg-gray-500":!toggleCaptured
-                    })}
-                    textColor="text-white"
-                    className={clsx("text-xs", "ml-10")}
-                    onClick={onToggleCaptured}
-                >
-                    Captured
-                </RoundedButton>
+            <div className={clsx("flex", "justify-center", "items-center", "my-2")}>
+                <div className={clsx("flex", "items-center", "ml-10", "gap-2")}>
+                    <span className={clsx("text-sm")}>Filter | </span>
+                    <RoundedButton 
+                        width="w-16" 
+                        height="h-8"
+                        backgroundColor={clsx({
+                            "bg-red-400":toggleCaptured,
+                            "bg-gray-500":!toggleCaptured
+                        })}
+                        textColor="text-white"
+                        className={clsx("text-xs")}
+                        onClick={onToggleCaptured}
+                    >
+                        Captured
+                    </RoundedButton>
+                </div>
                 <ListIcon toggled={!toggleGridView} onClick={onToggleListView} />
                 <GridIcon toggled={toggleGridView} onClick={onToggleGridView} />
             </div>
