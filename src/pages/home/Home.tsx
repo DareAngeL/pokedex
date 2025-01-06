@@ -2,7 +2,7 @@ import { getPokemons } from "../../service/pokedexService";
 import { useInfiniteQuery } from "@tanstack/react-query";
 import { Pokemon } from "../../types/pokemon.types";
 import GridIcon from "./elements/GridIcon";
-import NavBar from "./widgets/NavBar";
+import NavBar from "./views/NavBar";
 import { useHome } from "./hooks/useHome";
 import ListIcon from "./elements/ListIcon";
 import PokedexView from "./views/PokedexView";
