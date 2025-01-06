@@ -84,12 +84,13 @@ function PokeCard(props: PokeCardProps) {
                     {
                         "bottom-[25%]":props.style==="gridviewstyle",
                         "right-[15%]":props.style==="gridviewstyle",
-                        "left-[20%]":props.style==="listviewstyle"
-                    }, 
-                )} 
+                        "md:left-[20%]":props.style==="listviewstyle",
+                        "sm:left-[5%]":props.style==="listviewstyle"
+                    },
+                )}
                 src={props.image} 
-                width={props.style==="gridviewstyle"?"50%":"15%"} 
-                height={props.style==="gridviewstyle"?"50%":"15%"} 
+                width={props.style==="gridviewstyle"?"50%":"150px"} 
+                height={props.style==="gridviewstyle"?"50%":""} 
             />
 
             <p className={clsx(
