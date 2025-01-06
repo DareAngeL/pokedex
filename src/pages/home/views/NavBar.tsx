@@ -1,7 +1,8 @@
 import clsx from "clsx";
 import RoundedTextField from "../../../common/elements/RoundedTextField";
 import { SearchOutlined } from "@ant-design/icons";
-import { useState } from "react";
+import { useNavBar } from "../hooks/useNavBar";
+import { Title } from "../elements/Title";
 
 interface NavBarProps {
     onSearch: (value: string) => void;
@@ -9,7 +10,7 @@ interface NavBarProps {
 
 export default function NavBar(props: NavBarProps) {
 
-    const [searchedValue, setSearchedValue] = useState("");
+    const { onSearchClick, onSearchLostFocus, setSearchedValue, titleRef, searchRef, searchedValue } = useNavBar(props.onSearch);
 
     return (
         <div className={clsx(
@@ -31,11 +32,25 @@ export default function NavBar(props: NavBarProps) {
             "bg-[length:400%_400%]",
             "animate-gradient"
           )}>
-            <h1 className="poppins-bold text-white">Pokedex</h1>
-            <div className={clsx("flex", "gap-2")}>
+            <Title titleRef={titleRef} />
+            <div className={clsx("flex", "ml-5", "gap-2")}>
+                <SearchOutlined 
+                    className={clsx("text-2xl", "text-white")} 
+                    onClick={onSearchClick}
+                />
                 <RoundedTextField 
+                    fieldRef={searchRef}
                     text={searchedValue} 
                     height="h-10"
+                    className={clsx(
+                        "xs:w-0",
+                        "xs:opacity-0",
+                        "sm:w-full",
+                        "sm:opacity-100",
+                        "md:opacity-100",
+                        "md:w-full",
+                        "transition-all"
+                    )}
                     onChange={(e) => {
                         const value = e.currentTarget.value;
                         if (value === "") {
@@ -49,9 +64,9 @@ export default function NavBar(props: NavBarProps) {
                             props.onSearch(searchedValue);
                         }
                     }}
+                    onBlur={onSearchLostFocus}
                     placeholder="Find a pokemon..."
                 />
-                <SearchOutlined className={clsx("text-2xl", "text-white")} onClick={() => props.onSearch(searchedValue)}/>
             </div>
         </div>
     )

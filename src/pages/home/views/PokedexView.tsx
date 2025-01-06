@@ -20,7 +20,7 @@ export default function PokedexView(props: PokedexGridViewProps) {
         <>
             {props.toggleGridview ? (
                 <div className={clsx("flex", "justify-center")}>
-                    <div className={clsx("grid", "grid-cols-2", "md:grid-cols-3", "lg:grid-cols-5", "xl:grid-cols-6", "gap-4")}>
+                    <div className={clsx("grid", "xs:grid-cols-1", "sm:grid-cols-2", "md:grid-cols-3", "lg:grid-cols-5", "xl:grid-cols-6", "gap-4")}>
                         {props.pokemons.map((pokemon, index) => (
                             <PokeCard 
                                 key={index} 
@@ -60,7 +60,7 @@ export default function PokedexView(props: PokedexGridViewProps) {
 
             {props.pokemons.length === 0 && (
                 <div
-                    className={clsx("flex", "flex-col", "absolute", "justify-center", "items-center", "top-[50%]", "translate-y-[-50%]", "left-[50%]", "translate-x-[-50%]")} 
+                    className={clsx("flex", "flex-col", "absolute", "justify-center", "items-center", "top-[50%]", "translate-y-[-50%]", "left-[50%]", "translate-x-[-50%]", "animate-fadeIn2s")} 
                 >
                     <EmptyICSVG
                         width={100}

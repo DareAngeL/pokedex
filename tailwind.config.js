@@ -10,6 +10,7 @@ export default {
         gradient: "gradient 5s ease infinite",
         pokecard: "pokecard 1s ease forwards",
         fadeIn: "fadeIn .5s ease forwards",
+        fadeIn2s: "fadeIn 2s ease forwards",
         rotating: "rotating .5s ease infinite"
       },
       keyframes: {
@@ -51,6 +52,7 @@ export default {
       },
       screens: {
         // Change the default breakpoints
+        'xs':'320px',
         'sm': '480px',   // Small screens start at 480px
         'md': '640px',   // Medium screens start at 768px
         'lg': '1024px',  // Large screens start at 1024px
